@@ -29,21 +29,21 @@ This would be my gateway to the electron community. Post this project i would li
 
 ## Technical Skills
 
-| **Frontend**  | **Backend** | **Version Control** | **Project Management** | **DevOps** |
-| ------------- | ----------- | ------------------- | ---------------------- | ---------- |
-| React         | Node.js     | Git                 | Jira                   | Docker     |
-| Next.js       | Prisma      | BitBucket           | Trello                 | AWS        |
-| Tailwind      | MongoDB     | CodeCommit          | Github Projects        | Github Actions  |
-| Redux         | Express     |                     |                        |             |
-| GraphQL       | PostgreSQL  |                     |                        |             |
-| Apollo        | Python      |                     |                        |             |
-| Framer Motion | Django      |                     |                        |             |
+| **Frontend**  | **Backend** | **Version Control** | **Project Management** | **DevOps**     |
+| ------------- | ----------- | ------------------- | ---------------------- | -------------- |
+| React         | Node.js     | Git                 | Jira                   | Docker         |
+| Next.js       | Prisma      | BitBucket           | Trello                 | AWS            |
+| Tailwind      | MongoDB     | CodeCommit          | Github Projects        | Github Actions |
+| Redux         | Express     |                     |                        |                |
+| GraphQL       | PostgreSQL  |                     |                        |                |
+| Apollo        | Python      |                     |                        |                |
+| Framer Motion | Django      |                     |                        |                |
 
 ## Proposed Project Flow
 
 - **Week 1:** Familiarize myself with the Electron Forge documentation structure and the Docusaurus documentation setup. Also reach out to the community and the project mentor to discuss the project requirements and expectations.
 
-- **Week 2:** Start the migration process by setting up the Docusaurus documentation site and creating the necessary pages, components, and styles. Begin migrating the existing Electron Forge documentation content to the Docusaurus site. Review the progress with the project mentor and the community. 
+- **Week 2:** Start the migration process by setting up the Docusaurus documentation site and creating the necessary pages, components, and styles. Begin migrating the existing Electron Forge documentation content to the Docusaurus site. Review the progress with the project mentor and the community.
 
 - **Week 3:** Post the initial migration, review the content structure, formatting, and styling to ensure consistency and readability. Design a plugin to integrate the TypeDoc API docs for Electron Forge into the Docusaurus site.
 
@@ -118,6 +118,9 @@ This would be my gateway to the electron community. Post this project i would li
 └── tsconfig.json
 ```
 
+- The main project directory here is the `docs` directory which contains the markdown files for the Electron Forge documentation.
+
+
 > **Note:** The project setup is a basic representation of the work done uptill now and may be subject to changes based on the project requirements and discussions with the project mentor.
 
 https://github.com/tanmaypanda-14/project-prop-gsoc24/assets/87299490/c8ab38e0-aaa2-4c24-af60-6d461f46a729
@@ -126,6 +129,4 @@ https://github.com/tanmaypanda-14/project-prop-gsoc24/assets/87299490/c8ab38e0-a
 
 I am excited about the opportunity to work on the Electron Forge documentation migration project and contribute to the Electron community. I am confident in my technical skills and ability to deliver high-quality work within the stipulated timeline. I am looking forward to collaborating with the Electron team, the project mentor, and the community to ensure the successful completion of the project. Thank you for considering my proposal, and I am eager to contribute to the Electron project.
 
-> **Note:** My main focus is to develop the TypeDoc API documentation plugin for Electron Forge in the Docusaurus site. The video above is a representation of the work done so far and I am confident that i can complete the original project( migration of the gitbook docs to docusaurus) well before the stipulated timeline. Post the completion of the original project, I would like to work on the plugin development and integration, for which i will require mentorship from the Electron team.
-
-
+> **Note:** My main focus is to develop the `TypeDoc API documentation plugin` for Electron Forge in the Docusaurus site. The video above is a representation of the work done so far and I am confident that i can complete the original project( migration of the gitbook docs to docusaurus) well before the stipulated timeline. Post the completion of the original project, I would like to work on the plugin development and integration, for which i will require mentorship from the Electron team.
