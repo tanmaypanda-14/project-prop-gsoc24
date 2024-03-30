@@ -40,21 +40,48 @@ This would be my gateway to the electron community. Post this project i would li
 | Framer Motion | Django      |                     |                        |                |
 
 ## Proposed Project Flow
+### May 27 - July 12: Initial Setup and Content Migration
 
-- **Week 1:** Familiarize myself with the Electron Forge documentation structure and the Docusaurus documentation setup. Also reach out to the community and the project mentor to discuss the project requirements and expectations.
+- **May 27 - June 12 (3 weeks):**
+  - Familiarize with Electron Forge documentation structure and Docusaurus setup.
+  - Set up Docusaurus documentation site for Electron Forge.
+  - Begin migrating existing documentation content to Docusaurus.
 
-- **Week 2-6:** Start the migration process by setting up the Docusaurus documentation site and creating the necessary pages, components, and styles. Begin migrating the existing Electron Forge documentation content to the Docusaurus site. Review the progress with the project mentor and the community.
+- **June 13 - June 26 (2 weeks):**
+  - Continue migrating documentation content, focusing on content accuracy and formatting.
+  - Configure navigation, sidebar, and overall layout based on Electron's documentation guidelines.
 
-- **Week 7-10:** Post the initial migration, review the content structure, formatting, and styling to ensure consistency and readability. Design a plugin to integrate the TypeDoc API docs for Electron Forge into the Docusaurus site.
+- **June 27 - July 12 (2 weeks):**
+  - Customize Docusaurus theme to align with Electron branding and color palette.
+  - Configure navigation menus, sidebar structure, and page hierarchy for optimal user experience.
 
-- **Week 11-12:** Implement the plugin to generate and display the TypeDoc API documentation for Electron Forge in the Docusaurus site. Test the integration and make necessary adjustments to ensure a seamless user experience.
+### July 12 - August 26: Plugin Integration, Testing, and Documentation
+
+- **July 12 - July 18 (1 week):**
+  - Develop and integrate a plugin to import and display TypeDoc API documentation for Electron Forge.
+  - Test plugin functionality and ensure seamless integration with Docusaurus site.
+
+- **July 19 - August 1 (2 weeks):**
+  - Implement dynamic rendering of API documentation pages using the plugin.
+  - Review and refine API documentation content and structure for clarity and completeness.
+
+- **August 2 - August 8 (1 week):**
+  - Implement versioning support for Electron Forge documentation using Docusaurus.
+  - Set up search functionality powered by Algolia for quick and efficient content search.
+
+- **August 9 - August 15 (1 week):**
+  - Integrate internationalization (i18n) support for multilingual documentation.
+  - Customize Docusaurus components, styles, and layouts as per Electron's design guidelines.
+
+- **August 16 - August 26 (1 week):**
+  - Prepare for deployment of the updated Electron Forge documentation.
+  - Compile comprehensive documentation for the Docusaurus setup, customization, and plugin integration.
+  - Write guidelines and instructions for maintaining and updating the Electron Forge documentation on Docusaurus.
 
 ## How Docusaurus works
 
 ### Overview
 Docusaurus is a static site generator designed to simplify the process of building, deploying, and maintaining documentation websites.
-
-Docusaurus is a static site generator designed to simplify the process of building, deploying, and maintaining documentation websites. It's particularly popular among developers due to its ease of use, customization options, and integration with version control systems like Git. Here's an in-depth analysis of how Docusaurus works:
 
 1. **Architecture**:
    - Docusaurus is built on top of React, allowing for a component-based structure that promotes reusability and maintainability.
@@ -107,38 +134,6 @@ Additionally, the same author has a Docusaurus plugin, [docusaurus-plugin-typedo
 As seen in the above folder structure we will set the entry point to the index of the electron-forge api and our plugin will create documentation for it.
 
 Under the guidance of mentors from the Electron team, I propose to either update the support version of the mentioned plugin or create a new plugin from scratch with improved support for Docusaurus.
-
-
-## Technical Aspects
-1. **Documentation Structure Understanding:**
-   - Familiarize yourself with the existing Electron Forge documentation structure on GitBook.
-   - Understand the Docusaurus documentation setup and organization.
-2. **Community Interaction:**
-   - Reach out to the Electron community and the project mentor to discuss project requirements, expectations, and best practices for documentation.
-3. **Docusaurus Setup:**
-   - Set up the Docusaurus documentation site for Electron Forge.
-   - Configure navigation, sidebar, and overall layout based on Electron's documentation guidelines.
-4. **Content Migration:**
-   - Migrate existing Electron Forge documentation content from GitBook to Docusaurus.
-   - Ensure proper formatting, code highlighting, and linking within the documentation.
-5. **Content Review and Refinement:**
-   - Review the migrated content to ensure accuracy, completeness, and consistency with Electron's documentation style.
-   - Refine content structure, headings, and organization for better readability and accessibility.
-6. **Plugin Development (TypeDoc API):**
-   - Design and develop a plugin to integrate the TypeDoc API documentation for Electron Forge into the Docusaurus site.
-   - Implement features to generate and display API documentation dynamically within the Docusaurus site.
-7. **Testing and Integration:**
-   - Test the integration of the TypeDoc API plugin with the Docusaurus site.
-   - Conduct thorough testing to ensure proper functionality, responsiveness, and user experience.
-8. **Documentation Updates:**
-   - Document the migration process, plugin development, and integration steps for future reference.
-   - Provide guidelines and instructions for maintaining and updating the Electron Forge documentation on Docusaurus.
-9. **Collaboration and Feedback:**
-   - Collaborate with the Electron team, project mentor, and community for feedback, reviews, and improvements.
-   - Incorporate suggestions and iterate on the documentation and plugin based on feedback received.
-10. **Documentation Deployment:**
-    - Deploy the updated Electron Forge documentation on the Docusaurus site.
-    - Ensure proper version control and backup mechanisms for documentation maintenance.
 
 ## Conclusion
 
