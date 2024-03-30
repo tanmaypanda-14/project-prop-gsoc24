@@ -112,8 +112,6 @@ Docusaurus is a static site generator designed to simplify the process of buildi
    - Being a static site generator, Docusaurus produces highly optimized static HTML, CSS, and JavaScript files, resulting in fast page load times and improved performance.
    - It scales well for large documentation projects, thanks to its versioning support, search functionality, and customizable navigation structures.
 
-In summary, Docusaurus simplifies the process of creating and maintaining documentation websites by providing a developer-friendly architecture, key features like Markdown support and versioning, extensive customization options, and a supportive community ecosystem.
-
 ## Plugin for TypeDoc and Docusaurus integration
 
 While searching for possible solutions to migrate the Typedoc documentation of the Electron Forge API to Docusaurus, I came across an open-source project called [typedoc-plugin-markdown](https://github.com/tgreyuk/typedoc-plugin-markdown). Typedoc utilizes frontmatter and generates type-based documentation that is class-specific based on decorators and param comments. The author of this repository has used the same frontmatter utilities to create a template that outputs files in Markdown format. However, upon reviewing the code, I noticed that the author has not made the plugin compatible with the latest versions of Typedoc.
