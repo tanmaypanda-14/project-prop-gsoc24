@@ -43,87 +43,102 @@ This would be my gateway to the electron community. Post this project i would li
 
 - **Week 1:** Familiarize myself with the Electron Forge documentation structure and the Docusaurus documentation setup. Also reach out to the community and the project mentor to discuss the project requirements and expectations.
 
-- **Week 2:** Start the migration process by setting up the Docusaurus documentation site and creating the necessary pages, components, and styles. Begin migrating the existing Electron Forge documentation content to the Docusaurus site. Review the progress with the project mentor and the community.
+- **Week 2-6:** Start the migration process by setting up the Docusaurus documentation site and creating the necessary pages, components, and styles. Begin migrating the existing Electron Forge documentation content to the Docusaurus site. Review the progress with the project mentor and the community.
 
-- **Week 3:** Post the initial migration, review the content structure, formatting, and styling to ensure consistency and readability. Design a plugin to integrate the TypeDoc API docs for Electron Forge into the Docusaurus site.
+- **Week 7-10:** Post the initial migration, review the content structure, formatting, and styling to ensure consistency and readability. Design a plugin to integrate the TypeDoc API docs for Electron Forge into the Docusaurus site.
 
-- **Week 4:** Implement the plugin to fetch and display the TypeDoc API documentation for Electron Forge in the Docusaurus site. Test the integration and make necessary adjustments to ensure a seamless user experience.
+- **Week 11-12:** Implement the plugin to generate and display the TypeDoc API documentation for Electron Forge in the Docusaurus site. Test the integration and make necessary adjustments to ensure a seamless user experience.
 
-## Project setup
+## How Docusaurus works
+
+### Overview
+Docusaurus is a static site generator designed to simplify the process of building, deploying, and maintaining documentation websites.
+
+Docusaurus is a static site generator designed to simplify the process of building, deploying, and maintaining documentation websites. It's particularly popular among developers due to its ease of use, customization options, and integration with version control systems like Git. Here's an in-depth analysis of how Docusaurus works:
+
+1. **Architecture**:
+   - Docusaurus is built on top of React, allowing for a component-based structure that promotes reusability and maintainability.
+   - It uses Markdown and MDX (Markdown with embedded JSX) for content creation, making it easy for non-technical users to write and update documentation.
+   - The core functionality is provided by plugins and themes, which can be customized to suit specific project requirements.(this will help us make it consistent with electron's branding and color pallete)
+
+2. **Key Features**:
+   - **Markdown Support**: Docusaurus supports Markdown for creating content pages, blog posts, and API documentation.
+   - **Versioning**: It offers versioning support, allowing you to maintain multiple versions of documentation and switch between them seamlessly.
+   ![Docusaurus Architecture](https://i.imgur.com/EfQDFcr.png)
+   - **Search Functionality**: Docusaurus includes a built-in search feature powered by Algolia, making it easy for users to find relevant information quickly.
+   ![search](https://i.imgur.com/ngtLutb.png)
+   - **Internationalization (i18n)**: It supports internationalization, enabling you to create multilingual documentation sites.
+   ![i18n](https://i.imgur.com/FiDnXej.png)
+   - **Customization**: Docusaurus provides extensive customization options through themes, plugins, and configuration files, allowing you to tailor the look and feel of your documentation site.
+   ![custom](https://i.imgur.com/Gdcwprl.png)
+   - **Deployment**: It supports various deployment options, including static site hosting platforms like Netlify, Vercel, GitHub Pages, and custom servers.
+
+3. **Workflow**:
+   - **Setup**: To start a Docusaurus project, you typically use the Docusaurus CLI (`@docusaurus/init`) to create a new project with a predefined folder structure and configuration files.
+   - **Content Creation**: You write documentation content in Markdown or MDX format and organize it into pages, blog posts, and documentation sections.
+   - **Configuration**: Docusaurus provides a `docusaurus.config.js` file where you can configure site metadata, navigation menus, plugins, themes, and other settings.
+   - **Development**: During development, you use the Docusaurus development server (`pnpm start`) to preview your site locally and make changes.
+   - **Build**: When ready to deploy, you run the build command (`pnpm run build`), which generates a static version of your site in the `build` directory.
+   - **Deployment**: Finally, you deploy the built static files to your chosen hosting platform, ensuring that the documentation site is accessible to users.
+
+4. **Performance and Scalability**:
+   - Being a static site generator, Docusaurus produces highly optimized static HTML, CSS, and JavaScript files, resulting in fast page load times and improved performance.
+   - It scales well for large documentation projects, thanks to its versioning support, search functionality, and customizable navigation structures.
+
+In summary, Docusaurus simplifies the process of creating and maintaining documentation websites by providing a developer-friendly architecture, key features like Markdown support and versioning, extensive customization options, and a supportive community ecosystem.
+
+## Plugin for TypeDoc and Docusaurus integration
+
+While searching for possible solutions to migrate the Typedoc documentation of the Electron Forge API to Docusaurus, I came across an open-source project called [typedoc-plugin-markdown](https://github.com/tgreyuk/typedoc-plugin-markdown). Typedoc utilizes frontmatter and generates type-based documentation that is class-specific based on decorators and param comments. The author of this repository has used the same frontmatter utilities to create a template that outputs files in Markdown format. However, upon reviewing the code, I noticed that the author has not made the plugin compatible with the latest versions of Typedoc.
+
+Additionally, the same author has a Docusaurus plugin, [docusaurus-plugin-typedoc](https://github.com/tgreyuk/typedoc-plugin-markdown/tree/master/packages/docusaurus-plugin-typedoc#readme), which directly takes TypeScript source files and places them into the `docs/api` folder as documentation. The only issue is that the author only supports version 2 of Docusaurus, which is deprecated and unoptimized. We should stick to version 3.2 of [Docusaurus](https://docusaurus.io/blog/releases/3.2) as it offers better build times and more customization options.
 
 ```
-.
-├── babel.config.js
-├── docs
-│   ├── cli.md
-│   ├── configuration
-│   │   ├── configuration.md
-│   │   ├── hooks.md
-│   │   ├── makers
-│   │   │   ├── appx.md
-│   │   │   ├── deb.md
-│   │   │   ├── dmg.md
-│   │   │   ├── flatpak.md
-│   │   │   ├── pkg.md
-│   │   │   ├── README.md
-│   │   │   ├── rpm.md
-│   │   │   ├── snapcraft.md
-│   │   │   ├── squirrel.windows.md
-│   │   │   ├── wix-msi.md
-│   │   │   └── zip.md
-│   │   ├── plugins
-│   │   │   ├── auto-unpack-natives.md
-│   │   │   ├── electronegativity.md
-│   │   │   ├── fuses.md
-│   │   │   ├── local-electron.md
-│   │   │   ├── README.md
-│   │   │   ├── vite.md
-│   │   │   └── webpack.md
-│   │   └── publishers
-│   │       ├── bitbucket.md
-│   │       ├── electron-release-server.md
-│   │       ├── gcs.md
-│   │       ├── github.md
-│   │       ├── nucleus.md
-│   │       ├── README.md
-│   │       ├── s3.md
-│   │       └── snapcraft.md
-│   ├── import-existing-project.md
-│   └── intro.md
-├── docusaurus.config.ts
-├── package.json
-├── pnpm-lock.yaml
-├── README.md
-├── sidebars.ts
-├── src
-│   ├── components
-│   │   └── HomepageFeatures
-│   │       ├── index.tsx
-│   │       └── styles.module.css
-│   ├── css
-│   │   └── custom.css
-│   └── pages
-│       ├── index.module.css
-│       └── markdown-page.md
-├── static
-│   └── img
-│       ├── docusaurus.png
-│       ├── docusaurus-social-card.jpg
-│       ├── favicon.ico
-│       ├── logo.svg
-│       ├── undraw_docusaurus_mountain.svg
-│       ├── undraw_docusaurus_react.svg
-│       └── undraw_docusaurus_tree.svg
-├── SUMMARY.md
-└── tsconfig.json
+    ├── docs/
+        ├── api/ (compiled typedoc markdown)
+        ├── gitbook content 
+    ├── docusaurus.config.js
+    ├── package.json
+    ├── sidebars.js
+├──package.json
+├──src (electron-forge api  source)
+├──tsconfig.json
 ```
+As seen in the above folder structure we will set the entry point to the index of the electron-forge api and our plugin will create documentation for it.
 
-- The main project directory here is the `docs` directory which contains the markdown files for the Electron Forge documentation.
+Under the guidance of mentors from the Electron team, I propose to either update the support version of the mentioned plugin or create a new plugin from scratch with improved support for Docusaurus.
 
 
-> **Note:** The project setup is a basic representation of the work done uptill now and may be subject to changes based on the project requirements and discussions with the project mentor.
-
-https://github.com/tanmaypanda-14/project-prop-gsoc24/assets/87299490/c8ab38e0-aaa2-4c24-af60-6d461f46a729
+## Technical Aspects
+1. **Documentation Structure Understanding:**
+   - Familiarize yourself with the existing Electron Forge documentation structure on GitBook.
+   - Understand the Docusaurus documentation setup and organization.
+2. **Community Interaction:**
+   - Reach out to the Electron community and the project mentor to discuss project requirements, expectations, and best practices for documentation.
+3. **Docusaurus Setup:**
+   - Set up the Docusaurus documentation site for Electron Forge.
+   - Configure navigation, sidebar, and overall layout based on Electron's documentation guidelines.
+4. **Content Migration:**
+   - Migrate existing Electron Forge documentation content from GitBook to Docusaurus.
+   - Ensure proper formatting, code highlighting, and linking within the documentation.
+5. **Content Review and Refinement:**
+   - Review the migrated content to ensure accuracy, completeness, and consistency with Electron's documentation style.
+   - Refine content structure, headings, and organization for better readability and accessibility.
+6. **Plugin Development (TypeDoc API):**
+   - Design and develop a plugin to integrate the TypeDoc API documentation for Electron Forge into the Docusaurus site.
+   - Implement features to generate and display API documentation dynamically within the Docusaurus site.
+7. **Testing and Integration:**
+   - Test the integration of the TypeDoc API plugin with the Docusaurus site.
+   - Conduct thorough testing to ensure proper functionality, responsiveness, and user experience.
+8. **Documentation Updates:**
+   - Document the migration process, plugin development, and integration steps for future reference.
+   - Provide guidelines and instructions for maintaining and updating the Electron Forge documentation on Docusaurus.
+9. **Collaboration and Feedback:**
+   - Collaborate with the Electron team, project mentor, and community for feedback, reviews, and improvements.
+   - Incorporate suggestions and iterate on the documentation and plugin based on feedback received.
+10. **Documentation Deployment:**
+    - Deploy the updated Electron Forge documentation on the Docusaurus site.
+    - Ensure proper version control and backup mechanisms for documentation maintenance.
 
 ## Conclusion
 
